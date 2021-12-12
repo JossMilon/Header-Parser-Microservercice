@@ -25,9 +25,11 @@ app.get("/api/hello", function (req, res) {
 });
 
 app.get("/api/whoami", (req, res) => {
-  const ip = req.headers["x-forwarded-for"] || req.connection.remoteAddress;
-  console.log(ip); // ip address of the user
-  res.json(ip);
+  res.json({
+    ipaddress: req.headers.ipaddress || "not found",
+    language: req.headers["accept-language"] || "not found",
+    software: req.headers["user-agent"] || "not found",
+  });
 });
 
 // listen for requests :)
