@@ -26,7 +26,7 @@ app.get("/api/hello", function (req, res) {
 
 app.get("/api/whoami", (req, res) => {
   res.json({
-    ipaddress: req.headers.ipaddress || "not found",
+    ipaddress: req.ip || "not found",
     language: req.headers["accept-language"] || "not found",
     software: req.headers["user-agent"] || "not found",
   });
