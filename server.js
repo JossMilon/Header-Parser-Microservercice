@@ -27,7 +27,7 @@ app.get("/api/hello", function (req, res) {
 app.get("/api/whoami", (req, res) => {
   const ip = req.headers["x-forwarded-for"] || req.connection.remoteAddress;
   console.log(ip); // ip address of the user
-  res.json({ message: "in progress" });
+  res.json(ip);
 });
 
 // listen for requests :)
